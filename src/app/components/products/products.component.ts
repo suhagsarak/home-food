@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DataService } from 'src/app/service/data.service';
+import { UtilsService } from 'src/app/service/utils.service';
 
 @Component({
   selector: 'app-products',
@@ -9,9 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductsComponent implements OnInit {
 
   category: string;
+  foods: Array<any>;
+
+  loader = true;
 
   constructor(
     private route: ActivatedRoute,
+    private dataService: DataService,
+    private utilsService: UtilsService,
   ) { }
 
   ngOnInit() {
@@ -22,7 +29,27 @@ export class ProductsComponent implements OnInit {
   }
 
   private getProducts() {
-    
+    this.loader = true;
+    this.dataService.getProducts(this.category).subscribe((response: any) => {
+      let rating;
+      this.foods = response.map((food) => {
+        rating = this.utilsService.getRating();
+        return {
+          ...food,
+          pName: this.utilsService.getItemName(food.name),
+          rating,
+          ratPerc: (rating / 5) * 100,
+          src: `/assets/image/${this.category}/${food.name}`
+        }
+      })
+      console.log(this.foods);
+
+      this.loader = false;
+    }, (error) => {
+      this.loader = false;
+      console.log(error);
+    })
+
   }
 
 }
