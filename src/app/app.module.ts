@@ -15,6 +15,7 @@ import { BuyThanksComponent } from './components/buy-thanks/buy-thanks.component
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OwnerOrdersComponent } from './components/owner-orders/owner-orders.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { OwnerOrdersComponent } from './components/owner-orders/owner-orders.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

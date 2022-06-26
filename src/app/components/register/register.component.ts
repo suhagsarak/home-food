@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  message = ''
 
-  ngOnInit(): void {
+  @ViewChild('registerForm') registerForm: NgForm;
+
+  constructor(
+    private dataService: DataService,
+  ) { }
+
+  ngOnInit() { }
+
+  public register() {
+    this.message = "";
+    this.dataService.register(this.registerForm.form.value).subscribe((response) => {
+      this.registerForm.reset();
+      this.message = "User registered successfully";
+    }, (error) => {
+      console.error(error);
+    });
   }
 
+  public resetForm() {
+    this.registerForm.reset();
+  }
 }

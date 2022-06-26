@@ -12,6 +12,10 @@ export class DataService {
     private httpService: HttpClient,
   ) { }
 
+  public register(user) {
+    return this.firePostApi(this.baseUrl + 'user', user);
+  }
+
   public getProducts(category) {
     return this.fireGetApi(this.baseUrl + 'product/categorywise?category=' + category);
   }
