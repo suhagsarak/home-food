@@ -8,13 +8,13 @@
                 <span>{{food.pName}}</span>
             </div>
             <div class="food-price">
-                <span class="order-now c-p" onclick='addToCart(food)'> Order Now </span>
+                <span class="order-now c-p" (click)='addToCart(food)'> Order Now </span>
                 <span class="price">{{food.price}}/-</span>
             </div>
             <div>
                 <div class="progress progress-striped">
                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                        aria-valuemin="0" aria-valuemax="100" [style.width]="food.ratPerc">
+                        aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width.%': food.ratPerc}">
                         <span class="sr-only">Rating {{food.rating}}</span>
                     </div>
                 </div>

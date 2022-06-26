@@ -52,4 +52,8 @@ export class ProductsComponent implements OnInit {
 
   }
 
+  public addToCart(food) {
+    console.log(food);
+  }
+
 }
