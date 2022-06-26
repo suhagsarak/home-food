@@ -1,1 +1,224 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "./assets/js/bootstrap.min.css";
+
+body {
+    padding: 30px;
+    text-align: center;
+    background-color: #f7f2df;
+}
+
+.proj-title {
+    margin: auto;
+    font-size: 50px;
+    text-decoration: underline;
+}
+
+.navbar {
+    background-color: #f7f2df;
+}
+
+.navbar-nav {
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-nav a {
+    color: green;
+}
+
+.navbar-brand {
+    color: green;
+}
+
+.logout {
+    color: green;
+    cursor: pointer;
+}
+
+.navbar-nav li {
+    margin-right: 5px;
+}
+
+.back-drop {
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: honeydew;
+    border-radius: 50px;
+}
+
+.t-c {
+    text-align: center;
+}
+
+.w-1280 {
+    width: 1280px;
+}
+
+.ro-b {
+    border-radius: 30px;
+}
+
+.food-list {}
+
+.food-item-con {
+    display: inline-block;
+    width: 40%;
+    margin: 30px;
+}
+
+.food-image-con {
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+}
+
+.food-image {
+    border-radius: 10px;
+    object-fit: fill;
+    height: 300px;
+    width: 300px;
+}
+
+.food-details {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.food-name {}
+
+.food-price {}
+
+.food-price .order-now {}
+
+.food-price .price {}
+
+.progress {
+    margin-bottom: 5px;
+    border-radius: 50px;
+}
+
+.progress-bar {
+    background-color: greenyellow;
+    text-align: left;
+    justify-content: normal;
+    border-radius: 50px;
+}
+
+.rating-desc .col-md-3 {
+    padding-right: 0px;
+}
+
+.sr-only {
+    color: indianred;
+    font-size: 13px;
+    margin-left: 10px;
+    overflow: visible;
+    clip: auto;
+}
+
+.contact-about-us {
+    background-color: aliceblue;
+    margin: auto;
+    width: 350px;
+    height: 350px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px;
+}
+
+.login-form {
+    margin: auto;
+    background-color: azure;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.t-l {
+    text-align: left;
+}
+
+.c-p {
+    cursor: pointer;
+}
+
+/* orders */
+
+.order-list {
+    /* display: flex; */
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+    width: 100%;
+    background-color: lavender;
+}
+
+.order-item-con {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.order-image-con {
+    border-radius: 3px;
+    /* display: inline-block; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+}
+
+.order-image {
+    border-radius: 3px;
+    object-fit: fill;
+    height: 100px;
+    width: 100px;
+}
+
+.order-details {
+    margin-left: 30px;
+    /* display: inline-block; */
+    /* flex-direction: column; */
+}
+
+.food-name {}
+
+.food-price {
+    margin: auto;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    width: 180px;
+    display: inline-block;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.food-price:hover {
+    background-color: #3e8e41;
+}
+
+.food-price .order-now {}
+
+.food-price .price {}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: inline;
+}
