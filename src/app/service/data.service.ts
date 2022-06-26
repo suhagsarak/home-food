@@ -16,6 +16,10 @@ export class DataService {
     return this.firePostApi(this.baseUrl + 'user', user);
   }
 
+  public login(user) {
+    return this.firePostApi(this.baseUrl + 'user/isValid', user);
+  }
+
   public getProducts(category) {
     return this.fireGetApi(this.baseUrl + 'product/categorywise?category=' + category);
   }
