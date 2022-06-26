@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/service/data.service';
+import { LocalStorageService } from 'src/app/service/local-storage.service';
 import { UtilsService } from 'src/app/service/utils.service';
 
 @Component({
@@ -19,6 +20,7 @@ export class ProductsComponent implements OnInit {
     private route: ActivatedRoute,
     private dataService: DataService,
     private utilsService: UtilsService,
+    private localStorageService: LocalStorageService,
   ) { }
 
   ngOnInit() {
@@ -42,8 +44,6 @@ export class ProductsComponent implements OnInit {
           src: `/assets/image/${this.category}/${food.name}`
         }
       })
-      console.log(this.foods);
-
       this.loader = false;
     }, (error) => {
       this.loader = false;
@@ -53,7 +53,7 @@ export class ProductsComponent implements OnInit {
   }
 
   public addToCart(food) {
-    console.log(food);
+    this.localStorageService.addToCart(food);
   }
 
 }

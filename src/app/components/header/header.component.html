@@ -1,19 +1,19 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <a class="navbar-brand back-drop" routerLink="home">Home Foods</a>
     <ul class="nav navbar-nav">
-        <li class="back-drop">
+        <li *ngIf="isUserLoggedIn" class="back-drop">
             <a routerLink="products/maharashtra">Marathi</a>
         </li>
-        <li class="back-drop">
+        <li *ngIf="isUserLoggedIn" class="back-drop">
             <a routerLink="products/punjabi">Punjabi</a>
         </li>
-        <li class="back-drop">
+        <li *ngIf="isUserLoggedIn" class="back-drop">
             <a routerLink="products/south">South</a>
         </li>
-        <li class="back-drop">
+        <li *ngIf="isUserLoggedIn" class="back-drop">
             <a routerLink="products/north">North Indian</a>
         </li>
-        <li class="back-drop">
+        <li *ngIf="isUserLoggedIn" class="back-drop">
             <a routerLink="products/sindhi">Sindhi</a>
         </li>
     </ul>
