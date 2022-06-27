@@ -1,11 +1,12 @@
-<button style="float: right;" type="button" onclick="checkOut()" class="btn btn-success">Check Out</button>
+<button *ngIf="!isOrderComplete" style="float: right;" type="button" (click)="checkOut()" class="btn btn-success">Check
+    Out</button>
 
-<h3>Orders</h3>
 
 <div class="row">
-    <div style="width: 28%;"></div>
+    <div style="width: 33%;"></div>
     <div class="col-md-4">
         <div class="t-l">
+            <h2 style="text-align: center;">Your Order</h2>
             <div *ngFor="let order of userOrder" class="order-item-con">
                 <div class="order-image-con">
                     <img class="order-image" [src]="order.src" />
@@ -21,7 +22,7 @@
                         <span class="price">Count- {{order.count}}</span>
                     </div>
                     <div class="order-price">
-                        <span class="price">Total Price- {{order.count*order.price}}/-</span>
+                        <span class="price">Total Price- {{order.totalPrice}}/-</span>
                     </div>
                 </div>
             </div>
@@ -29,4 +30,24 @@
     </div>
 </div>
 
-<button style="float: right;" type="button" onclick="checkOut()" class="btn btn-success">Check Out</button>
+<ng-container *ngIf="isOrderComplete">
+    <h5>
+        Please pay Rs. <span id='total'>{{totalPrice}}</span> to our delivery representative.
+    </h5>
+    <a routerLink="/home" class="button">
+        <h2 onclick="clearOrders()">Click Here To Eat More! </h2>
+    </a>
+    <br>
+    <br>
+    <br>
+    <h6> Can you please give us your valuable Feedback </h6>
+    <a routerLink="/feedback" class="button text-warning">
+        <h1>Feedback</h1>
+    </a>
+    <h1>
+        Thanks For Buying Our Food. <br>
+        <marquee WIDTH=600 BEHAVIOR=ALTERNATE>
+            We Hope To See You Again!!
+        </marquee>
+    </h1>
+</ng-container>
