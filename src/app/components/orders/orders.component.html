@@ -1,15 +1,32 @@
-<div class="order-list">
-    <div *ngFor="let order of userOrder" class="order-item-con">
-        <div class="order-image-con">
-            <img class="order-image" src="image/${food.category}/${food.name}" />
-        </div>
-        <div class="order-details">
-            <div class="order-name">
-                <span>{{order.pName}}</span>
-            </div>
-            <div class="order-price">
-                <span class="price">{{order.price}}</span>
+<button style="float: right;" type="button" onclick="checkOut()" class="btn btn-success">Check Out</button>
+
+<h3>Orders</h3>
+
+<div class="row">
+    <div style="width: 28%;"></div>
+    <div class="col-md-4">
+        <div class="t-l">
+            <div *ngFor="let order of userOrder" class="order-item-con">
+                <div class="order-image-con">
+                    <img class="order-image" [src]="order.src" />
+                </div>
+                <div class="order-details">
+                    <div class="order-name">
+                        <span>{{order.pName}}</span>
+                    </div>
+                    <div class="order-price">
+                        <span class="price">Price- {{order.price}}/-</span>
+                    </div>
+                    <div class="order-price">
+                        <span class="price">Count- {{order.count}}</span>
+                    </div>
+                    <div class="order-price">
+                        <span class="price">Total Price- {{order.count*order.price}}/-</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<button style="float: right;" type="button" onclick="checkOut()" class="btn btn-success">Check Out</button>
