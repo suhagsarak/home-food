@@ -24,6 +24,10 @@ export class DataService {
     return this.fireGetApi(this.baseUrl + 'product/categorywise?category=' + category);
   }
 
+  public sendFeedback(feedback) {
+    return this.firePostApi(this.baseUrl + 'feedback', feedback);
+  }
+
   private fireGetApi(url) {
     return this.httpService.get(url);
   }

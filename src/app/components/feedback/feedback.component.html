@@ -1,50 +1,53 @@
 <h1> Feedback Form</h1>
 <div class="col-md-3"></div>
 <div class="t-l login-form col-md-5">
-    <div class="form-group">
-        <label for="input" class="col-sm-2 control-label">Name:</label>
-        <div class="col-sm-10">
-            <input type="text" name="" id="name" class="form-control" value="" required="required" title="">
+    <form action="javascript:void(0);" #feedbackForm="ngForm" (ngSubmit)="sendFeedback()" ngNativeValidate>
+        <div class="form-group">
+            <label for="input" class="col-sm-2 control-label">Name:</label>
+            <div class="col-sm-10">
+                <input type="text" name="" id="name" class="form-control" ngModel="" required="required" title="">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="input" class="col-sm-2 control-label">Address:</label>
-        <div class="col-sm-10">
-            <input type="text" name="" id="address" class="form-control" value="" required="required" title="">
+        <div class="form-group">
+            <label for="input" class="col-sm-2 control-label">Address:</label>
+            <div class="col-sm-10">
+                <input type="text" name="" id="address" class="form-control" ngModel="" required="required" title="">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="input" class="col-sm-2 control-label">Email:</label>
-        <div class="col-sm-10">
-            <input type="email" name="" id="email" class="form-control" value="" required="required" title="">
+        <div class="form-group">
+            <label for="input" class="col-sm-2 control-label">Email:</label>
+            <div class="col-sm-10">
+                <input type="email" name="" id="email" class="form-control" ngModel="" required="required" title="">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="input" class="col-sm-2 control-label">City:</label>
-        <div class="col-sm-10">
-            <input type="text" name="" id="city" class="form-control" value="" required="required" title="">
+        <div class="form-group">
+            <label for="input" class="col-sm-2 control-label">City:</label>
+            <div class="col-sm-10">
+                <input type="text" name="" id="city" class="form-control" ngModel="" required="required" title="">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="gender" class="col-sm-2 control-label">Gender:</label>
-        <div class="col-sm-10">
-            <select name="Gender" id="gender" class="form-control" required="required">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
+        <div class="form-group">
+            <label for="gender" class="col-sm-2 control-label">Gender:</label>
+            <div class="col-sm-10">
+                <select ngModel="" name="Gender" id="gender" class="form-control" required="required">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="input" class="col-sm-2 control-label">Feedback:</label>
-        <div class="col-sm-10">
-            <textarea rows="5" cols="60" id="feedback" class="form-control" required="required"></textarea>
+        <div class="form-group">
+            <label for="input" class="col-sm-2 control-label">Feedback:</label>
+            <div class="col-sm-10">
+                <textarea ngModel="" rows="5" cols="60" id="feedback" class="form-control"
+                    required="required"></textarea>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-10 col-sm-offset-2">
-            <button type="button" id="submit" onclick="sendFeedback()" class="btn btn-primary">Submit</button>
-            <button style="float: right;" type="button" id="reset" onclick="resetFeedback()"
-                class="btn btn-primary">Reset</button>
+        <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+                <button type="button" id="submit" class="btn btn-primary">Submit</button>
+                <button style="float: right;" type="button" id="reset" (click)="resetFeedback()"
+                    class="btn btn-primary">Reset</button>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
