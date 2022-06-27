@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { BuyThanksComponent } from './components/buy-thanks/buy-thanks.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { OwnerOrdersComponent } from './components/owner-orders/owner-orders.component';
 import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './guard/auth.guard';
+import { OwnerGuard } from './guard/owner.guard';
 
 const routes: Routes = [
   {
@@ -35,7 +41,28 @@ const routes: Routes = [
   },
   {
     path: 'products/:category',
-    component: ProductsComponent
+    component: ProductsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'orders',
+    component: OrdersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'owner-orders',
+    component: OwnerOrdersComponent,
+    canActivate: [AuthGuard, OwnerGuard]
+  },
+  {
+    path: 'feedback',
+    component: FeedbackComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'buy-thanks',
+    component: BuyThanksComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '*',

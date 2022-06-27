@@ -7,7 +7,7 @@ export class LocalStorageService {
 
   orders;
   email;
-  userOrders;
+  userOrder;
   category;
 
   constructor() {
@@ -24,16 +24,13 @@ export class LocalStorageService {
 
   private initialise() {
     this.getOrders();
-    if (!this.orders) {
-      this.orders = {};
-      this.saveOrders();
-    }
     // user should be logged in
     this.email = localStorage.getItem('email') || '';
     if (this.email) {
-      this.userOrders = this.orders[this.email];
-      if (!this.userOrders) {
-        this.orders[this.email] = [];
+      this.userOrder = this.orders[this.email];
+      if (!this.userOrder) {
+        this.userOrder = [];
+        this.orders[this.email] = this.userOrder;
         this.saveOrders();
       }
     }
@@ -41,31 +38,19 @@ export class LocalStorageService {
 
   public addToCart(product) {
     this.initialise();
-    this.userOrders.push(product);
+    this.userOrder.push(product);
     this.saveOrders();
   }
 
-  public checkOut() {
-
-    // let total = 0;
-    // userOrders.forEach(element => {
-    //     total = total + element.price;
-    // });
-
-    // localStorage.setItem('total', total);
-
-    // userOrders = [];
-    // orders[email] = userOrders;
-    // saveOrders();
-
-
-    window.location.href = "buythanks.html";
+  public getUserOrder() {
+    this.initialise();
+    return this.userOrder;
   }
 
   // call only from buythanks page
-  public clearOrders() {
-    this.userOrders = [];
-    this.orders[this.email] = this.userOrders;
+  public clearOrdersForUser() {
+    this.userOrder = [];
+    this.orders[this.email] = this.userOrder;
     this.saveOrders();
   }
 

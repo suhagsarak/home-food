@@ -1,1 +1,15 @@
-<p>orders works!</p>
+<div class="order-list">
+    <div *ngFor="let order of userOrder" class="order-item-con">
+        <div class="order-image-con">
+            <img class="order-image" src="image/${food.category}/${food.name}" />
+        </div>
+        <div class="order-details">
+            <div class="order-name">
+                <span>{{order.pName}}</span>
+            </div>
+            <div class="order-price">
+                <span class="price">{{order.price}}</span>
+            </div>
+        </div>
+    </div>
+</div>
