@@ -1,4 +1,5 @@
-<button *ngIf="!isOrderComplete" style="float: right;" type="button" (click)="checkOut()" class="btn btn-success">Check
+<button *ngIf="userOrder?.length && !isOrderComplete" style="float: right;" type="button" (click)="checkOut()"
+    class="btn btn-success">Check
     Out</button>
 
 
