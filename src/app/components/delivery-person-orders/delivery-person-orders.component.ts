@@ -39,7 +39,6 @@ export class DeliveryPersonOrdersComponent implements OnInit {
     })
   }
 
-
   public changeOrderStatus(index) {
     const orde = this.deliveryPersonOrders[index];
     this.dataService.changeOrderStatus(orde.oid, orde.status).subscribe(response => { })
