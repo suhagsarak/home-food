@@ -31,13 +31,24 @@
                         </div>
                         <div class="detail customer-details-in-order">
                             <div>Product List</div>
-                            <div *ngFor="let product of order.orderDetails.products" class="product-list-in-order">
-                                <!-- <div>Pid: {{product.pid}}, </div> -->
-                                <div style="display: inline-block; width: 10%;">Name: {{utilsService.getItemName(product.name)}}, </div>
-                                <!-- <div>Category: {{product.category}}, </div> -->
-                                <div style="display: inline-block; width: 10%;">Quantity: {{product.count}}, </div>
-                                <div style="display: inline-block; width: 10%;">Price: {{product.price}}</div>
-                            </div>
+                            <table class="product-list-in-order">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Sub Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let product of order.orderDetails.products">
+                                        <td> {{utilsService.getItemName(product.name)}}</td>
+                                        <td>{{product.price}}</td>
+                                        <td>{{product.count}}</td>
+                                        <td>{{product.price * product.count}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

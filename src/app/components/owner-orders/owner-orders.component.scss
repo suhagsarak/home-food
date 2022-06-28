@@ -21,13 +21,13 @@
 }
 
 .product-list-in-order {
-    display: flex;
-}
 
-.product-list-in-order div {
-    display: inline-block;
+    tr,
+    td,
+    th {
+        padding: 4px;
+    }
 }
-
 
 .header {
     padding: 10px;

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { BuyThanksComponent } from './components/buy-thanks/buy-thanks.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { HomeComponent } from './components/home/home.component';
@@ -57,11 +56,6 @@ const routes: Routes = [
   {
     path: 'feedback',
     component: FeedbackComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'buy-thanks',
-    component: BuyThanksComponent,
     canActivate: [AuthGuard]
   },
   {
