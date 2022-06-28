@@ -32,9 +32,10 @@ export class OwnerOrdersComponent implements OnInit {
   }
 
   public showOrderDetails(order) {
-    this.dataService.getDetailsofOrder(order.oid).subscribe((response) => {
-      this.ownerOrders.forEach(o => o.orderDetails = null)
-      order.orderDetails = response
-    })
+    if (!order.orderDetails)
+      this.dataService.getDetailsofOrder(order.oid).subscribe((response) => {
+        this.ownerOrders.forEach(o => o.orderDetails = null)
+        order.orderDetails = response
+      })
   }
 }
