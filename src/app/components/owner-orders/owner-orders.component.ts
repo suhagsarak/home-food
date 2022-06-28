@@ -11,6 +11,8 @@ import { UtilsService } from 'src/app/service/utils.service';
 export class OwnerOrdersComponent implements OnInit {
 
   ownerOrders: any = []
+  deliveryPersons: any = []
+  orderStatuses: any = ['RECEIVED', 'ACCEPTED', 'CANCELLED', 'REJECTED', 'CONFIRMED', 'DELIVERED']
 
   constructor(
     private dataService: DataService,
@@ -18,16 +20,22 @@ export class OwnerOrdersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getOwnerOrders();
+    this.getAllDeliveryPersons();
   }
 
   private getOwnerOrders() {
     this.dataService.getOwnerOrders().subscribe((response) => {
-      console.log(response);
       this.ownerOrders = response;
       this.ownerOrders.forEach(order => {
         order.time = moment(order.time).format('D MMM YYYY, h:mm:ss a');
       });
+    })
+  }
+
+  private getAllDeliveryPersons() {
+    this.dataService.getAllDeliveryPersons().subscribe((response) => {
+      this.deliveryPersons = response;
+      this.getOwnerOrders();
     })
   }
 
@@ -37,5 +45,15 @@ export class OwnerOrdersComponent implements OnInit {
         this.ownerOrders.forEach(o => o.orderDetails = null)
         order.orderDetails = response
       })
+  }
+  public changeOrderStatus(index) {
+    const orde = this.ownerOrders[index];
+    this.dataService.changeOrderStatus(orde.oid, orde.status).subscribe(response => { })
+  }
+
+  public assignDeliveryPersonToOrder(index) {
+    const orde = this.ownerOrders[index];
+    orde.dpid = parseInt(orde.dpid);
+    this.dataService.assignDeliveryPersonToOrder(orde.oid, orde.dpid).subscribe(response => { })
   }
 }

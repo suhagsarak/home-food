@@ -30,11 +30,14 @@
 }
 
 .header {
-    padding: 10px;
+    padding: 16px 22px;
 }
 
 .field {
-    padding: 10px;
+    padding: 16px 22px;
+    &.dd {
+        padding: 10px;
+    }
 }
 
 .owner-order-oid {
@@ -42,7 +45,7 @@
 }
 
 .owner-order-status {
-    width: 20%;
+    width: 15%;
 }
 
 .owner-order-time {
@@ -50,9 +53,17 @@
 }
 
 .owner-order-totalprice {
-    width: 20%;
+    width: 10%;
 }
 
 .owner-order-user {
-    width: 30%;
+    width: 10%;
+}
+
+.owner-order-delivery-pesrson {
+    width: 20%;
+}
+
+.owner-order-details {
+    width: 10%;
 }
