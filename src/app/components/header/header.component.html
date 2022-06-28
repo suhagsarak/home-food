@@ -25,7 +25,10 @@
         <li class="back-drop"><a routerLink="about-us">About Us</a></li>
         <li class="back-drop" *ngIf="!isUserLoggedIn" id="registerele"><a routerLink="register">Register Here</a></li>
         <li class="back-drop" *ngIf="isUserLoggedIn && !isDeliveryPerson && !isOwner" id="ordersele"><a
-                routerLink="orders">Orders</a>
+                routerLink="my-orders">All Orders</a>
+        </li>
+        <li class="back-drop" *ngIf="isUserLoggedIn && !isDeliveryPerson && !isOwner" id="ordersele"><a
+                routerLink="orders">Cart</a>
         </li>
         <li class="back-drop" *ngIf="isUserLoggedIn && isOwner" id="allOrders"><a
                 routerLink="owner-orders">Dashboard</a></li>
