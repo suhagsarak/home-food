@@ -10,6 +10,7 @@ import { DataService } from 'src/app/service/data.service';
 export class FeedbackComponent implements OnInit {
 
   @ViewChild('feedbackForm') feedbackForm: NgForm;
+  message
 
   constructor(
     private dataService: DataService,
@@ -18,7 +19,10 @@ export class FeedbackComponent implements OnInit {
   ngOnInit() { }
 
   sendFeedback() {
-    this.dataService.sendFeedback(this.feedbackForm.form.value).subscribe((response: any) => { });
+    this.dataService.sendFeedback(this.feedbackForm.form.value).subscribe((response: any) => {
+      this.feedbackForm.reset();
+      this.message = 'Feedback submitted successfully'
+    });
   }
 
   resetFeedback() {
