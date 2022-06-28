@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
     this.dataService.login(this.loginForm.form.value).subscribe((response: any) => {
       if (response.length) {
         this.error = "Log in sucessfull";
-        localStorage.setItem('uid', response[0].uid);
+        localStorage.setItem('uid', response[0]?.uid);
+        localStorage.setItem('dpid', response[0]?.dpid);
         localStorage.setItem('email', response[0].email);
         localStorage.setItem('type', response[0].type);
         this.router.navigate(['home']);

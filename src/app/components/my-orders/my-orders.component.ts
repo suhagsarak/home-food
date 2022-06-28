@@ -4,13 +4,13 @@ import { DataService } from 'src/app/service/data.service';
 import { UtilsService } from 'src/app/service/utils.service';
 
 @Component({
-  selector: 'app-owner-orders',
-  templateUrl: './owner-orders.component.html',
-  styleUrls: ['./owner-orders.component.scss']
+  selector: 'app-my-orders',
+  templateUrl: './my-orders.component.html',
+  styleUrls: ['./my-orders.component.scss']
 })
-export class OwnerOrdersComponent implements OnInit {
+export class MyOrdersComponent implements OnInit {
 
-  ownerOrders: any = []
+  customerOrders: any = []
   deliveryPersons: any = []
   orderStatuses: any = ['RECEIVED', 'ACCEPTED', 'CANCELLED', 'REJECTED', 'CONFIRMED', 'DELIVERED']
 
@@ -26,14 +26,14 @@ export class OwnerOrdersComponent implements OnInit {
   private getAllDeliveryPersons() {
     this.dataService.getAllDeliveryPersons().subscribe((response) => {
       this.deliveryPersons = response;
-      this.getOwnerOrders();
+      this.getCustomerOrders();
     })
   }
 
-  private getOwnerOrders() {
-    this.dataService.getOwnerOrders().subscribe((response) => {
-      this.ownerOrders = response;
-      this.ownerOrders.forEach(order => {
+  private getCustomerOrders() {
+    this.dataService.getCustomerOrders(localStorage.getItem('uid')).subscribe((response) => {
+      this.customerOrders = response;
+      this.customerOrders.forEach(order => {
         order.time = moment(order.time).format('D MMM YYYY, h:mm:ss a');
       });
     })
@@ -42,19 +42,9 @@ export class OwnerOrdersComponent implements OnInit {
   public showOrderDetails(order) {
     if (!order.orderDetails)
       this.dataService.getDetailsofOrder(order.oid).subscribe((response) => {
-        this.ownerOrders.forEach(o => o.orderDetails = null)
+        this.customerOrders.forEach(o => o.orderDetails = null)
         order.orderDetails = response
       })
   }
 
-  public changeOrderStatus(index) {
-    const orde = this.ownerOrders[index];
-    this.dataService.changeOrderStatus(orde.oid, orde.status).subscribe(response => { })
-  }
-
-  public assignDeliveryPersonToOrder(index) {
-    const orde = this.ownerOrders[index];
-    orde.dpid = parseInt(orde.dpid);
-    this.dataService.assignDeliveryPersonToOrder(orde.oid, orde.dpid).subscribe(response => { })
-  }
 }

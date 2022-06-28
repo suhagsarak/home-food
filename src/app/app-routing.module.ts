@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { DeliveryPersonOrdersComponent } from './components/delivery-person-orders/delivery-person-orders.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { MyDeliveriesComponent } from './components/my-deliveries/my-deliveries.component';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OwnerOrdersComponent } from './components/owner-orders/owner-orders.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -51,8 +52,13 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'my-orders',
+    component: MyOrdersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'my-deliveries',
-    component: MyDeliveriesComponent,
+    component: DeliveryPersonOrdersComponent,
     canActivate: [AuthGuard, DeliveryPersonGuard]
   },
   {

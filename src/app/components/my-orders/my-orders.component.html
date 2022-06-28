@@ -1,0 +1,76 @@
+<h3>My Orders</h3>
+<div class="row customer-orders">
+    <div class="col-md-12">
+        <div class="t-l">
+            <div class="owner-order-list">
+                <div class="owner-order-item">
+                    <div class="owner-order-item-con">
+                        <div class="header owner-order-oid">Order ID</div>
+                        <div class="header owner-order-status">Order Status</div>
+                        <div class="header owner-order-time">Order Created At</div>
+                        <div class="header owner-order-totalprice">Order Total Price</div>
+                        <div class="header owner-order-user">Customer</div>
+                        <div class="header owner-order-delivery-pesrson">Delivery Pesrson</div>
+                        <div class="header owner-order-details"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="owner-order-list">
+                <div *ngFor="let order of customerOrders;let i = index;" class="owner-order-item">
+                    <div class="owner-order-item-con">
+                        <div class="field owner-order-oid">{{order.oid}}</div>
+                        <div class="field dd owner-order-status form-group">
+                            <select placeholder="Change status" name="status" id="status" class="form-control"
+                                [(ngModel)]="order.status" disabled>
+                                <option *ngFor="let orderStatus of orderStatuses" [value]="orderStatus">
+                                    {{orderStatus}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="field owner-order-time">{{order.time}}</div>
+                        <div class="field owner-order-totalprice">{{order.totalPrice}}</div>
+                        <div class="field owner-order-user">{{order.name}}</div>
+                        <div class="field dd owner-order-delivery-pesrson form-group">
+                            <select placeholder="Assign delivery person" name="dpid" id="dpid" class="form-control"
+                                disabled [(ngModel)]="order.dpid">
+                                <option *ngFor="let deliveryPerson of deliveryPersons" [value]="deliveryPerson.dpid">
+                                    {{deliveryPerson.name}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="field owner-order-details" (click)="showOrderDetails(order)">Details</div>
+                    </div>
+                    <div *ngIf="order.orderDetails" class="owner-order-item-details">
+                        <div class="detail customer-details-in-order">
+                            <div>Customer Details</div>
+                            <div>Name: {{order.orderDetails.name}}</div>
+                            <div>Email: {{order.orderDetails.email}}</div>
+                            <div>Address: {{order.orderDetails.address}} {{order.orderDetails.city}}</div>
+                        </div>
+                        <div class="detail customer-details-in-order">
+                            <div>Product List</div>
+                            <table class="product-list-in-order">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Sub Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let product of order.orderDetails.products">
+                                        <td> {{utilsService.getItemName(product.name)}}</td>
+                                        <td>{{product.price}}</td>
+                                        <td>{{product.count}}</td>
+                                        <td>{{product.price * product.count}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -222,3 +222,80 @@ body {
 .show {
     display: inline;
 }
+
+
+
+
+.customer-orders,
+.delivery-boy-orders {
+    .owner-order-list {}
+
+    .owner-order-item {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-bottom: 16px;
+    }
+
+    .owner-order-item-con {
+        display: flex;
+        min-height: 35px;
+        background-color: azure;
+    }
+
+    .owner-order-item-details {
+        display: flex;
+        background-color: azure;
+    }
+
+    .detail {
+        padding: 10px;
+    }
+
+    .product-list-in-order {
+
+        tr,
+        td,
+        th {
+            padding: 4px;
+        }
+    }
+
+    .header {
+        padding: 16px 22px;
+    }
+
+    .field {
+        padding: 16px 22px;
+
+        &.dd {
+            padding: 10px;
+        }
+    }
+
+    .owner-order-oid {
+        width: 10%;
+    }
+
+    .owner-order-status {
+        width: 15%;
+    }
+
+    .owner-order-time {
+        width: 20%;
+    }
+
+    .owner-order-totalprice {
+        width: 10%;
+    }
+
+    .owner-order-user {
+        width: 10%;
+    }
+
+    .owner-order-delivery-pesrson {
+        width: 20%;
+    }
+
+    .owner-order-details {
+        width: 10%;
+    }
+}

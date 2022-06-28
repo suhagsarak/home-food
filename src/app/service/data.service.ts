@@ -39,6 +39,12 @@ export class DataService {
   public assignDeliveryPersonToOrder(oid, dpid) {
     return this.fireGetApi(this.baseUrl + `order/assign-delivery-person?oid=${oid}&dpid=${dpid}`);
   }
+  public getDeliveryPersonOrders(dpid) {
+    return this.fireGetApi(this.baseUrl + `order/delivery-person-orders?dpid=${dpid}`);
+  }
+  public getCustomerOrders(uid) {
+    return this.fireGetApi(this.baseUrl + `order/customer-orders?uid=${uid}`);
+  }
   public sendFeedback(feedback) {
     return this.firePostApi(this.baseUrl + 'feedback', feedback);
   }
