@@ -5,11 +5,13 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { MyDeliveriesComponent } from './components/my-deliveries/my-deliveries.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OwnerOrdersComponent } from './components/owner-orders/owner-orders.component';
 import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guard/auth.guard';
+import { DeliveryPersonGuard } from './guard/delivery-person.guard';
 import { OwnerGuard } from './guard/owner.guard';
 
 const routes: Routes = [
@@ -47,6 +49,11 @@ const routes: Routes = [
     path: 'orders',
     component: OrdersComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'my-deliveries',
+    component: MyDeliveriesComponent,
+    canActivate: [AuthGuard, DeliveryPersonGuard]
   },
   {
     path: 'owner-orders',

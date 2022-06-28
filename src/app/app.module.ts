@@ -15,6 +15,7 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OwnerOrdersComponent } from './components/owner-orders/owner-orders.component';
 import { FormsModule } from '@angular/forms';
+import { MyDeliveriesComponent } from './components/my-deliveries/my-deliveries.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     FeedbackComponent,
     OrdersComponent,
-    OwnerOrdersComponent
+    OwnerOrdersComponent,
+    MyDeliveriesComponent
   ],
   imports: [
     BrowserModule,

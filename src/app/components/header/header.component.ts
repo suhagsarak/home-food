@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit, OnDestroy {
 
   isUserLoggedIn;
-  isUserOwner;
+  isOwner;
+  isDeliveryPerson;
   interval
 
   constructor(
@@ -19,7 +20,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.interval = setInterval(() => {
       this.isUserLoggedIn = localStorage.getItem('email');
-      this.isUserOwner = localStorage.getItem('type') === 'Owner';
+      this.isOwner = localStorage.getItem('type') === 'Owner';
+      this.isDeliveryPerson = localStorage.getItem('type') === 'Delivery Person';
     }, 100);
   }
 
