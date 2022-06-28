@@ -18,11 +18,7 @@ export class FeedbackComponent implements OnInit {
   ngOnInit() { }
 
   sendFeedback() {
-    this.dataService.sendFeedback(this.feedbackForm.form.value).subscribe((response: any) => {
-
-    }, (error) => {
-      console.error(error);
-    });
+    this.dataService.sendFeedback(this.feedbackForm.form.value).subscribe((response: any) => { });
   }
 
   resetFeedback() {

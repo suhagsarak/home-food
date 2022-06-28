@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public logout() {
+    localStorage.removeItem('uid');
     localStorage.removeItem('email');
     localStorage.removeItem('type');
     this.router.navigate(['login']);

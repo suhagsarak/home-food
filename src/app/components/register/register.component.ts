@@ -24,8 +24,6 @@ export class RegisterComponent implements OnInit {
     this.dataService.register(this.registerForm.form.value).subscribe((response) => {
       this.registerForm.reset();
       this.message = "User registered successfully";
-    }, (error) => {
-      console.error(error);
     });
   }
 

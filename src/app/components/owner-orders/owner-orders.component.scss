@@ -1,0 +1,58 @@
+.owner-order-list {}
+
+.owner-order-item {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 16px;
+}
+
+.owner-order-item-con {
+    display: flex;
+    min-height: 35px;
+    background-color: azure;
+}
+
+.owner-order-item-details {
+    display: flex;
+    background-color: azure;
+}
+
+.detail {
+    padding: 10px;
+}
+
+.product-list-in-order {
+    display: flex;
+}
+
+.product-list-in-order div {
+    display: inline-block;
+}
+
+
+.header {
+    padding: 10px;
+}
+
+.field {
+    padding: 10px;
+}
+
+.owner-order-oid {
+    width: 10%;
+}
+
+.owner-order-status {
+    width: 20%;
+}
+
+.owner-order-time {
+    width: 20%;
+}
+
+.owner-order-totalprice {
+    width: 20%;
+}
+
+.owner-order-user {
+    width: 30%;
+}

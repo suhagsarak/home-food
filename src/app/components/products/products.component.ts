@@ -45,9 +45,6 @@ export class ProductsComponent implements OnInit {
         }
       })
       this.loader = false;
-    }, (error) => {
-      this.loader = false;
-      console.log(error);
     })
 
   }

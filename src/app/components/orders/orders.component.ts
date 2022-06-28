@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { DataService } from 'src/app/service/data.service';
 import { LocalStorageService } from 'src/app/service/local-storage.service';
 import { UtilsService } from 'src/app/service/utils.service';
 
@@ -17,6 +17,7 @@ export class OrdersComponent implements OnInit {
   constructor(
     private localStorageService: LocalStorageService,
     private utilsService: UtilsService,
+    private dataService: DataService,
   ) { }
 
   ngOnInit() {
@@ -47,8 +48,18 @@ export class OrdersComponent implements OnInit {
   }
 
   checkOut() {
-    // API
-    this.isOrderComplete = true;
+    const request = {
+      totalPrice: this.totalPrice,
+      uid: localStorage.getItem('uid'),
+      products: this.userOrder
+    }
+    this.dataService.createOrder(request).subscribe(response => {
+      this.isOrderComplete = true;
+    })
+  }
+
+  clearOrders() {
+    this.localStorageService.clearOrdersForUser();
   }
 
 }

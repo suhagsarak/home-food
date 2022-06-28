@@ -24,6 +24,17 @@ export class DataService {
     return this.fireGetApi(this.baseUrl + 'product/categorywise?category=' + category);
   }
 
+  public createOrder(request) {
+    return this.firePostApi(this.baseUrl + 'order/create', request);
+  }
+  public getOwnerOrders() {
+    return this.fireGetApi(this.baseUrl + 'order/owner-orders-with-user');
+  }
+
+  public getDetailsofOrder(oid) {
+    return this.fireGetApi(this.baseUrl + `order/order-details?oid=${oid}`);
+
+  }
   public sendFeedback(feedback) {
     return this.firePostApi(this.baseUrl + 'feedback', feedback);
   }

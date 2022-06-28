@@ -1,1 +1,47 @@
-<p>owner-orders works!</p>
+<h3>All Orders</h3>
+<div class="row">
+    <div class="col-md-12">
+        <div class="t-l">
+            <div class="owner-order-list">
+                <div class="owner-order-item">
+                    <div class="owner-order-item-con">
+                        <div class="header owner-order-oid">Order ID</div>
+                        <div class="header owner-order-status">Order Status</div>
+                        <div class="header owner-order-time">Order Created At</div>
+                        <div class="header owner-order-totalprice">Order Total Price</div>
+                        <div class="header owner-order-user">Customer</div>
+                    </div>
+                </div>
+            </div>
+            <div class="owner-order-list">
+                <div *ngFor="let order of ownerOrders;let i = index;" class="owner-order-item">
+                    <div class="owner-order-item-con" (click)="showOrderDetails(order)">
+                        <div class="field owner-order-oid">{{order.oid}}</div>
+                        <div class="field owner-order-status">{{order.status}}</div>
+                        <div class="field owner-order-time">{{order.time}}</div>
+                        <div class="field owner-order-totalprice">{{order.totalPrice}}</div>
+                        <div class="field owner-order-user">{{order.name}}</div>
+                    </div>
+                    <div *ngIf="order.orderDetails" class="owner-order-item-details">
+                        <div class="detail customer-details-in-order">
+                            <div>Customer Details</div>
+                            <div>Name: {{order.orderDetails.name}}</div>
+                            <div>Email: {{order.orderDetails.email}}</div>
+                            <div>Address: {{order.orderDetails.address}} {{order.orderDetails.city}}</div>
+                        </div>
+                        <div class="detail customer-details-in-order">
+                            <div>Product List</div>
+                            <div *ngFor="let product of order.orderDetails.products" class="product-list-in-order">
+                                <!-- <div>Pid: {{product.pid}}, </div> -->
+                                <div style="display: inline-block; width: 10%;">Name: {{utilsService.getItemName(product.name)}}, </div>
+                                <!-- <div>Category: {{product.category}}, </div> -->
+                                <div style="display: inline-block; width: 10%;">Quantity: {{product.count}}, </div>
+                                <div style="display: inline-block; width: 10%;">Price: {{product.price}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
