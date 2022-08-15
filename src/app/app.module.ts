@@ -17,6 +17,8 @@ import { OwnerOrdersComponent } from './components/owner-orders/owner-orders.com
 import { FormsModule } from '@angular/forms';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { DeliveryPersonOrdersComponent } from './components/delivery-person-orders/delivery-person-orders.component';
+import { PaySuccessComponent } from './components/pay-success/pay-success.component';
+import { PayFailComponent } from './components/pay-fail/pay-fail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { DeliveryPersonOrdersComponent } from './components/delivery-person-orde
     OrdersComponent,
     OwnerOrdersComponent,
     MyOrdersComponent,
-    DeliveryPersonOrdersComponent
+    DeliveryPersonOrdersComponent,
+    PaySuccessComponent,
+    PayFailComponent
   ],
   imports: [
     BrowserModule,

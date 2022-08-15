@@ -9,6 +9,8 @@ import { LoginComponent } from './components/login/login.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OwnerOrdersComponent } from './components/owner-orders/owner-orders.component';
+import { PayFailComponent } from './components/pay-fail/pay-fail.component';
+import { PaySuccessComponent } from './components/pay-success/pay-success.component';
 import { ProductsComponent } from './components/products/products.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './guard/auth.guard';
@@ -49,6 +51,16 @@ const routes: Routes = [
   {
     path: 'orders',
     component: OrdersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pay-success',
+    component: PaySuccessComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pay-fail',
+    component: PayFailComponent,
     canActivate: [AuthGuard]
   },
   {

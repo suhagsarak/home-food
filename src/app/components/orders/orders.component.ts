@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/service/data.service';
 import { LocalStorageService } from 'src/app/service/local-storage.service';
 import { UtilsService } from 'src/app/service/utils.service';
+import { PayService } from 'src/app/service/pay.service';
 
 @Component({
   selector: 'app-orders',
@@ -18,6 +19,7 @@ export class OrdersComponent implements OnInit {
     private localStorageService: LocalStorageService,
     private utilsService: UtilsService,
     private dataService: DataService,
+    private payService: PayService,
   ) { }
 
   ngOnInit() {
@@ -54,8 +56,8 @@ export class OrdersComponent implements OnInit {
       products: this.userOrder
     }
     this.dataService.createOrder(request).subscribe(response => {
-      this.isOrderComplete = true;
-    })
+      this.payService.getPayment(response['insertId'], '')
+    });
   }
 
   clearOrders() {
