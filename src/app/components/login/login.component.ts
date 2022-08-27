@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('email')) {
-      this.router.navigate(['home']);
+      this.routeUserToHome();
     }
   }
 
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('dpid', response[0]?.dpid);
         localStorage.setItem('email', response[0].email);
         localStorage.setItem('type', response[0].type);
-        this.router.navigate(['home']);
+        this.routeUserToHome();
       } else {
         this.maxTry--;
         this.error = "<br>Please enter valid credentials" + "<br>You have left " + this.maxTry + " attempt.";
@@ -44,7 +44,20 @@ export class LoginComponent implements OnInit {
         }
       }
     });
+  }
 
+  private routeUserToHome() {
+    switch (localStorage.getItem('type')) {
+      case "Delivery Person":
+        this.router.navigate(['my-deliveries']);
+        break;
+      case "Owner":
+        this.router.navigate(['owner-orders']);
+        break;
+      case "Customer":
+      default:
+        this.router.navigate(['home']);
+    }
   }
 
 }

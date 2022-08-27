@@ -7,10 +7,10 @@
             <div class="food-name">
                 <span>{{food.pName}}</span>
             </div>
-            <div class="food-price">
-                <span class="order-now c-p" (click)='addToCart(food)'> Order Now </span>
+            <button class="food-price" (click)='addToCart(food)'>
+                <span class="order-now"> Order Now </span>
                 <span class="price">{{food.price}}/-</span>
-            </div>
+            </button>
             <div>
                 <div class="progress progress-striped">
                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"

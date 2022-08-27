@@ -56,11 +56,13 @@ export class OrdersComponent implements OnInit {
       products: this.userOrder
     }
     this.dataService.createOrder(request).subscribe(response => {
-      this.payService.getPayment(response['insertId'], '')
+      // this.isOrderComplete = true;
+      this.payService.getPayment(response['insertId'], '', request.totalPrice)
     });
   }
 
   clearOrders() {
+    this.userOrder = [];
     this.localStorageService.clearOrdersForUser();
   }
 

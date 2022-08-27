@@ -191,20 +191,29 @@ body {
 .food-price {
     margin: auto;
     margin-top: 6px;
-    margin-bottom: 6px;
-    width: 180px;
-    display: inline-block;
+    margin-bottom: 16px;
+
+    padding: 6px 16px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: white;
     background-color: #4CAF50;
     border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 6px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
+    border-radius: 4px;
+    width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    &:active {
+        background-color: #3e8e41;
+        box-shadow: 0 8px 16px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 4px rgba(0, 0, 0, 0.19);
+        transform: translateY(4px);
+    }
+
+    &:focus {
+        outline: none;
+    }
 }
 
 .food-price:hover {

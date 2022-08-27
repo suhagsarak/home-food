@@ -9,12 +9,12 @@ export class PayService {
 
     constructor() { }
 
-    public getPayment(orderID, customer) {
+    public getPayment(orderID, customer, price) {
         const paymentRequest = {
             key: environment.PAYU_TEST_KEY,
             txnid: `${orderID}`,
             productinfo: "Food",
-            amount: "10",
+            amount: price,
             email: "suhagsarak@gmail.com",
             firstname: "Suhag",
             lastname: "Sarak",
