@@ -12,7 +12,7 @@ export class PayService {
     public getPayment(orderID, customer, price) {
         const paymentRequest = {
             key: environment.PAYU_TEST_KEY,
-            txnid: `${orderID}`,
+            txnid: `${orderID}-${new Date().getTime()}`,
             productinfo: "Food",
             amount: price,
             email: "suhagsarak@gmail.com",
